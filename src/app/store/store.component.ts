@@ -45,7 +45,10 @@ export class StoreComponent implements OnInit {
   }
   add() {
     this.items.forEach(i => i.choosen = false);
-    this.isShown = true;
+    this.isShown = false;
+    setTimeout(() => {
+      this.isShown = true;
+    }, 0);
     this.item = null;
   }
 
