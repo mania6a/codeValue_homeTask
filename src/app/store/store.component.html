@@ -1,0 +1,12 @@
+<h1>My store</h1>
+<button class="btn btn-primary" (click)="add()">Add</button>
+<div class="cont">
+  <div class="list">
+<app-item *ngFor="let item of items; let ind = index"
+          [item] = "item" [items] = "items" [ind]="ind"
+          (choosen)="showDetails($event)"></app-item>
+  </div>
+  <div class="edit">
+<app-edit *ngIf="isShown" [item]="item" [items]="items" (displayed)="toShown()"></app-edit>
+  </div>
+</div>

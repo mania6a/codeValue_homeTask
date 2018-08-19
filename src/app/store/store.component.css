@@ -1,0 +1,18 @@
+h1{
+  background-color: lightskyblue;
+}
+.cont{
+  display: flex;
+  justify-content: space-evenly;
+}
+.list{
+  width: 60%;
+  padding-left: 2vw;
+}
+.edit{
+  flex-grow: 2;
+  padding: 2vw;
+}
+button{
+  margin: 2vw;
+}

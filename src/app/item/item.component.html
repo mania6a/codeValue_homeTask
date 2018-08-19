@@ -1,0 +1,10 @@
+<div class = "cont" (click)="onClick()" [ngClass]="{clicked: item.choosen}">
+<img src="../../assets/pictures/image.jpg" alt="image">
+  <div>
+    <p>{{item.name}}</p>
+    <p>{{item.description}}</p>
+  </div>
+  <span class="space"></span>
+  <button class="btn btn-danger" (click)="delete()">Delete</button>
+</div>
+

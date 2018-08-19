@@ -1,0 +1,10 @@
+.price{
+  width: 50%;
+}
+p{
+  display: flex;
+}
+p > span{
+  padding-left: 10px;
+}
+

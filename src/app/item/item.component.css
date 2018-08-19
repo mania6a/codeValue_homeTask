@@ -1,0 +1,24 @@
+.cont{
+  display: flex;
+  width: 100%;
+  padding: 2vw;
+  border: 1px solid gray;
+  margin-bottom: 10px;
+}
+ .clicked{
+  background-color: lightgrey;
+}
+img{
+  width: 5vw;
+  height: 5vh;
+  padding-right: 2vw;
+}
+button{
+  align-self: end;
+}
+.space{
+  flex: 1 1 auto;
+}
+p{
+  margin-bottom: 0px;
+}
