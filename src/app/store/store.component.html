@@ -1,5 +1,8 @@
 <h1>My store</h1>
+<div class="search">
 <button class="btn btn-primary" (click)="add()">Add</button>
+<input type="text" class="form-control" #search (input)="toSearch()">
+</div>
 <div class="cont">
   <div class="list">
 <app-item *ngFor="let item of items; let ind = index"

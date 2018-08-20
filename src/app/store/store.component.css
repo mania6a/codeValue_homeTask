@@ -13,6 +13,12 @@ h1{
   flex-grow: 2;
   padding: 2vw;
 }
-button{
+button, input{
   margin: 2vw;
+}
+.search{
+  display: flex;
+}
+input{
+  width: 20%;
 }

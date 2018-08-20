@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {CrudService} from '../crud.service';
 
 @Component({
@@ -7,8 +7,8 @@ import {CrudService} from '../crud.service';
   styleUrls: ['./store.component.css']
 })
 export class StoreComponent implements OnInit {
-
-  items = [
+@ViewChild('search') search;
+  itemsDefault = [
     {id: 1,
      name: 'Dress',
      description: 'Red party dress',
@@ -32,9 +32,16 @@ export class StoreComponent implements OnInit {
   ];
   isShown = false;
   item;
+  items = [];
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.items = this.itemsDefault;
+  }
+
+  toSearch() {
+     this.items = this.itemsDefault.filter(item => item.name.toLowerCase().includes(this.search.nativeElement.value.toLowerCase()));
+    }
 
   showDetails(item) {
     this.isShown = false;
