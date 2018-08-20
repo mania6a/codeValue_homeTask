@@ -22,5 +22,6 @@ export class ItemComponent implements OnInit {
 
   delete() {
     this.items.splice(this.ind, 1);
+    localStorage.setItem('itemsList', this.items.map(i => JSON.stringify(i)));
   }
 }

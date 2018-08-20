@@ -35,6 +35,7 @@ export class EditComponent implements OnInit {
       this.items.push(newItem);
     }
     this.displayed.emit();
+    localStorage.setItem('itemsList', this.items.map(i => JSON.stringify(i)));
   }
 
 
