@@ -2,7 +2,13 @@
 <div class="search">
 <button class="btn btn-primary" (click)="add()">Add</button>
 <input type="text" class="form-control" #search (input)="toSearch()">
-</div>
+  <div class="progress" *ngIf="progress < 100">
+    <div class="progress-bar progress-bar-striped active" role="progressbar"
+         aria-valuemin="0" aria-valuemax="100"
+         [ngStyle]="{width: progress}">
+      {{progress}}
+    </div>
+  </div></div>
 <div class="cont">
   <div class="list">
 <app-item *ngFor="let item of items; let ind = index"

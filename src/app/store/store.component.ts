@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CrudService} from '../crud.service';
+import {analyzeFileForInjectables} from '@angular/compiler';
 
 @Component({
   selector: 'app-store',
@@ -8,6 +9,7 @@ import {CrudService} from '../crud.service';
 })
 export class StoreComponent implements OnInit {
 @ViewChild('search') search;
+/*
   itemsDefault = [
     {id: 1,
      name: 'Dress',
@@ -30,18 +32,31 @@ export class StoreComponent implements OnInit {
       price: 5,
       choosen: false}
   ];
+*/
   isShown = false;
   item;
   items = [];
-  constructor() { }
+  itemsDefault = [];
+  progress = 0;
+  constructor(private service: CrudService) { }
 
   ngOnInit() {
-    this.items = this.itemsDefault;
+    if (localStorage.getItem('itemsList')) {
+      this.itemsDefault = Array.of(localStorage.getItem('itemsList')) ;
+      this.items = this.itemsDefault;
+    } else {
+      this.service.getItems().then((data: Array<any>) => {
+        this.itemsDefault = data;
+        this.items = this.itemsDefault;
+        localStorage.setItem('itemsList',
+          this.itemsDefault.map(i => JSON.stringify(i)).toString());
+      });
+    }
   }
 
   toSearch() {
      this.items = this.itemsDefault.filter(item => item.name.toLowerCase().includes(this.search.nativeElement.value.toLowerCase()));
-    }
+  }
 
   showDetails(item) {
     this.isShown = false;
