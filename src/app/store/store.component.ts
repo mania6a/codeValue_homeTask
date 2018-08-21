@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {CrudService} from '../crud.service';
-import {analyzeFileForInjectables} from '@angular/compiler';
 
 @Component({
   selector: 'app-store',
@@ -42,14 +41,12 @@ export class StoreComponent implements OnInit {
 
   ngOnInit() {
     if (localStorage.getItem('itemsList')) {
-      this.itemsDefault = Array.of(localStorage.getItem('itemsList')) ;
+      this.itemsDefault = JSON.parse(localStorage.getItem('itemsList'));
       this.items = this.itemsDefault;
     } else {
       this.service.getItems().then((data: Array<any>) => {
         this.itemsDefault = data;
         this.items = this.itemsDefault;
-        localStorage.setItem('itemsList',
-          this.itemsDefault.map(i => JSON.stringify(i)).toString());
       });
     }
   }

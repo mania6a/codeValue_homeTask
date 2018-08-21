@@ -32,6 +32,7 @@ export class CrudService {
 
   getItems () {
     const items = this.itemsDefault;
+    localStorage.setItem('itemsList', JSON.stringify(items));
     return new Promise((resolve, reject) => {
       setTimeout(resolve(items), 5000);
     });
